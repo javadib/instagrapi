@@ -64,6 +64,27 @@ Useful flags:
 | `--traceback` | full tracebacks |
 | `--skip-preflight` | run even when Instagram looks unreachable |
 
+## Example: fetch reels + comments
+
+`examples/fetch_comments_reels.py` is a standalone aiograpi script that pulls a
+user's reels and the comments on each one, concurrently, into a JSON file.
+
+```bash
+export CRAWLER_INSTAGRAM_USERNAME='your_account'
+export CRAWLER_INSTAGRAM_PASSWORD='your_password'
+export CRAWLER_INSTAGRAM_PROXY='http://user:pass@host:port'   # recommended
+
+python tools/ig_bench/examples/fetch_comments_reels.py \
+    --target nasa --reels 5 --comments 20 --out reels.json
+```
+
+It reuses a saved session (`ig_session.json`) so it does not send a password on
+every run, and handles 2FA, challenges and rate limits with actionable messages.
+
+Credentials come from the environment only — the `.gitignore` here keeps session
+files and output JSON out of the repo. A saved session file grants account
+access just like a password; treat it the same way.
+
 ## Reading the output
 
 - `PASS` on login but `FAIL` on one operation → that endpoint changed, or the
