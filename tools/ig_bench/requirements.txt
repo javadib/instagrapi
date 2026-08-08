@@ -1,0 +1,8 @@
+# Backends compared by tools/ig_bench/bench.py
+instagrapi>=2.18.12
+aiograpi>=1.12.8
+requests>=2.32
+
+# Legacy backend used by Osintgram. Pinned because that is what Osintgram pins.
+# Last PyPI release: 2019-05-06. Included so its failure is measured, not assumed.
+instagram-private-api==1.6.0
