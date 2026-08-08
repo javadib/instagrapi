@@ -7,3 +7,6 @@ ig_session.json
 *.json
 !package.json
 __pycache__/
+
+# run_all.sh workdir
+.ig_bench/

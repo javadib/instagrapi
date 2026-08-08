@@ -24,6 +24,22 @@ cd aiograpi-rest && pip install .          # needs Python >= 3.13
 uvicorn aiograpi_rest.main:app --port 8000
 ```
 
+## One command for everything
+
+Installs all backends, clones and starts `aiograpi-rest`, runs preflight, the
+harness self-test, and the comparison:
+
+```bash
+export CRAWLER_INSTAGRAM_USERNAME='your_account'
+export CRAWLER_INSTAGRAM_PASSWORD='your_password'
+export CRAWLER_INSTAGRAM_PROXY='http://user:pass@host:port'   # recommended
+
+bash tools/ig_bench/run_all.sh nasa
+```
+
+Everything it downloads goes in `./.ig_bench/`; the result lands in
+`ig_bench_report.json`. The sections below cover running the pieces separately.
+
 ## Check connectivity first
 
 ```bash
